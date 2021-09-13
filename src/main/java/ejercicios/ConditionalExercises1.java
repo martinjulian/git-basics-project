@@ -1,11 +1,8 @@
 package ejercicios;
 
 import menu.Menu;
-import util.IOUtil;
 
-import static util.IOUtil.intInput;
-import static util.IOUtil.print;
-
+import static util.IOUtil.*;
 public class ConditionalExercises1 {
 
     public static void SubscribeToMenu(Menu mainMenu) {
@@ -18,6 +15,8 @@ public class ConditionalExercises1 {
         exercises.addItem("Ejercicio 5 ", ConditionalExercises1::Exercise5);
         exercises.addItem("Ejercicio 6 ", ConditionalExercises1::Exercise6);
         exercises.addItem("Ejercicio 7 ", ConditionalExercises1::Exercise7);
+        exercises.addItem("Ejercicio 8 ", ConditionalExercises1::Exercise8);
+        exercises.addItem("Ejercicio 9 ", ConditionalExercises1::Exercise9);
     }
 
     //1. Ingresar un número entero. En caso de ser positivo indicar ‘true’ por pantalla
@@ -47,8 +46,12 @@ public class ConditionalExercises1 {
     public static void Exercise3() {
         int num = intInput("Ingrese un numero entero");
 
-        if (num > 0 && (num > 10)) {
-            print(true);
+        if (num > 0) {
+            if (num > 10) {
+                print(true);
+
+            }
+
         }
     }
 
@@ -91,16 +94,15 @@ public class ConditionalExercises1 {
         int numA = intInput("Ingrese un numero entero A");
         int numB = intInput("Ingrese un numero entero B");
 
-        if (numA > 0 && numB >  0 ) {
-            if ((numA+1) % 2 ==0 ) {
+        if (numA > 0 && numB > 0) {
+            if ((numA + 1) % 2 == 0) {
                 print(true);
 
             }
-            if ((numB+1) % 2 ==0 ) {
+            if ((numB + 1) % 2 == 0) {
                 print(true);
             }
-        }
-        else if ((numA+1) % 2 ==0 ) {
+        } else if ((numA + 1) % 2 == 0) {
             print(true);
         }
     }
@@ -114,15 +116,159 @@ public class ConditionalExercises1 {
         int numB = intInput("Ingrese un numero entero B");
         int numC = intInput("Ingrese un numero entero C");
 
-        if (numA > 0 ){
-            if ((numC+numB > 0) || (numA-numB < 0)) {
+        if (numA > 0) {
+            if ((numC + numB > 0) || (numA - numB < 0)) {
                 print(true);
             }
         }
-        if ((numA-numB-numC)==0) {
+        if ((numA - numB - numC) == 0) {
             print(true);
         }
     }
 
+    //8. Ingresar dos colores. Pueden ser los tres primarios o sus combinaciones. Si los dos
+    //colores son primarios, devolver el color que se forma. Si uno es secundario y el otro es uno
+    //de sus primarios, devolver el secundario sumándole "claro"/"oscuro" según sea el caso. Si
+    //los dos son secundarios, o si uno es primario pero no forma parte del secundario, devolver
+    //'marrón'. Si alguno es inexistente, indicar "error". Pista -> pasar a minúscula.
+    public static void Exercise8() {
+        final String ColorA = stringInput("ingrese un color A").toLowerCase();
+        final String ColorB = stringInput("ingrese un color B").toLowerCase();
 
-}
+        final String rojo = "rojo";
+        final String amarillo = "amarillo";
+        final String azul = "azul";
+
+        final String naranja = "naranja";
+        final String violeta = "violeta";
+        final String verde = "verde";
+
+        final String marron = "marron";
+
+        final String oscuro = "oscuro";
+        final String claro = "claro";
+
+        final String error = "error";
+
+        if (!rojo.equals(ColorA) && !amarillo.equals(ColorA) && !azul.equals(ColorA) &&
+                !naranja.equals(ColorA) && !violeta.equals(ColorA) && !verde.equals(ColorA)) {
+            print(error);
+            return;
+
+       }
+        else if (!rojo.equals(ColorB) && !amarillo.equals(ColorB) && !azul.equals(ColorB) &&
+                    !naranja.equals(ColorB) && !violeta.equals(ColorB) && !verde.equals(ColorB)) {
+                print(error);
+                return;
+
+        }
+        final String userinput= ColorA + ColorB;
+
+        switch (userinput){
+            case rojo + amarillo:
+            case amarillo + rojo:
+                print(naranja);
+                break;
+
+            case rojo + azul:
+            case azul + rojo:
+                print(violeta);
+                break;
+
+            case amarillo + azul:
+            case azul + amarillo:
+                print(verde);
+                break;
+
+            case verde + amarillo:
+                print(verde + claro);
+                break;
+
+            case verde + azul:
+                print(verde + oscuro);
+                break;
+
+            case violeta + rojo:
+                print(violeta + claro);
+                break;
+
+            case violeta + azul:
+                print(violeta + oscuro);
+                break;
+
+            case naranja + amarillo:
+                print(naranja + claro);
+                break;
+
+            case naranja + rojo:
+                print( naranja + oscuro);
+                break;
+
+            default:
+                print(marron);
+                break;
+
+
+
+        }
+    }
+
+    //9. Calculadora:
+    //Ingresar un texto: "sum", "subtract", "multiply", "divide", "percentage".
+    //Ingresar dos números y mostrar por pantalla el resultado de la operación. Mostrar
+    //"error" si la operación es inválida o si se divide por 0.
+    public static void Exercise9(){
+        final String operation = stringInput("ingrese una operacion a realizar").toLowerCase();
+        final String sum = "sum";
+        final String multiply = "multiply";
+        final String substract = "substract";
+        final String divide = "divide";
+        final String percentaje = "percentaje";
+
+        if (!operation.equals(sum) && !operation.equals(multiply)
+           && !operation.equals(substract) && !operation.equals(divide) && !operation.equals(percentaje)){
+            print("error");
+            return;
+        }
+
+        final double numA = doubleInput( "ingrese numero A");
+        final double numB = doubleInput( " ingrese numero B");
+
+        if (operation.equals(divide) && (numB==0)) {
+            print("error");
+            return;
+        }
+        if (operation.equals(percentaje) && (numB < 0)){
+            print("error");
+            return;
+
+        }
+        switch (operation){
+            case sum:
+                print(numA+numB);
+                break;
+
+            case multiply:
+                print(numA*numB);
+                break;
+
+            case substract:
+                print(numA-numB);
+                break;
+
+            case divide:
+                print(numA/numB);
+                break;
+
+            case percentaje:
+                print(numA*(numB/100));
+                break;
+
+
+
+        }
+        }
+
+    }
+
+
