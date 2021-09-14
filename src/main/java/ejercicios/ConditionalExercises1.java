@@ -44,6 +44,7 @@ public class ConditionalExercises1 {
 
     //3. Ingresar un número entero. En caso de ser positivo y mayor que 10 indicar true por
     //pantalla.
+    // TODO ojo con los espacios extras
     public static void Exercise3() {
         int num = intInput("Ingrese un numero entero");
 
@@ -69,6 +70,7 @@ public class ConditionalExercises1 {
         }
     }
 
+    // TODO esta perfecto, podría mejorarse la performance si operás en cada ingreso
     //5. Ingresar tres números. Mostrar “true” cada vez que el número ingresado sea par
     public static void Exercise5() {
 
@@ -103,14 +105,14 @@ public class ConditionalExercises1 {
             if ((numB + 1) % 2 == 0) {
                 print(true);
             }
-        } else if ((numA + 1) % 2 == 0) {
+        } else if ((numA + 1) % 2 == 0) { //TODO esto podría estar fuera del else ya que se hace en ambos casos
             print(true);
         }
     }
 
     //7. Ingresar tres números 'a', 'b' y 'c'. En caso de que 'a' sea positivo y la suma de 'b' y 'c' sea
     //un número positivo, mostrar 'true'. Si esto último no sucede pero la resta entre 'a' y 'b' es
-    //negativa, también mostrar 'true'. En todos los demás casos indicar por pantalla si la resta de
+    //negativa, también mostrar 'true'. En TODOs los demás casos indicar por pantalla si la resta de
     //los tres números es igual a 0
     public static void Exercise7() {
         int numA = intInput("Ingrese un numero entero A");
@@ -163,7 +165,7 @@ public class ConditionalExercises1 {
                 return;
 
         }
-        final String userinput= ColorA + ColorB;
+        final String userinput= ColorA + ColorB; // TODO usar camelCase -> userInput
 
         switch (userinput){
             case rojo + amarillo:
@@ -274,6 +276,8 @@ public class ConditionalExercises1 {
     //Luego elige la opción primero el jugador uno y luego el dos. Mostrar por pantalla el ganador
     //o error si ingresan una opción inválida
     public static void Exercise10(){
+        //TODO cuidado no usar variables que empiecen en mayúscula. Eso está reservado para nombre de classes exclusivamente
+        //TODO hay dos espacios entre el tipo de dato y el nombre de la variable
         final String  NameA= stringInput( "Ingrese el nombre el jugador 1");
         final String  NameB= stringInput( "Ingrese el nombre el jugador 2");
 
@@ -293,9 +297,23 @@ public class ConditionalExercises1 {
                 print("error");
                 return;
             }
-        final String useroption= OptionA + OptionB;
-        final String ganador = "ganador";
+        final String useroption= OptionA + OptionB; //TODO usar CamelCase -> userOption
+        final String ganador = "ganador"; //TODO ¿este valor inicial tiene algún uso?
 
+        // TODO Me encanta este approach con el switch. Creo que se le puede dar una vuelta de tuerca porque varios cases terminan en el mismo resultado no?
+        // TODO parecido a lo que hiciste con el empate. Dejo un escenario de ejemplo:
+        /* switch (useroption) {
+       
+            case piedra + tijera:
+            case papel + piedra:
+            case tijera + papel:
+                print(NameA + ":" + ganador);
+                break;
+                
+            case....    
+            */
+
+                
             switch (useroption) {
                 case piedra + tijera:
                     print(NameA + ":" + ganador);
@@ -324,7 +342,7 @@ public class ConditionalExercises1 {
                 case papel + papel:
                 case piedra + piedra:
                 case tijera + tijera:
-                    print("empate");
+                    print("empate"); //TODO en caso de empate no vuelven a jugar?
                     break;
 
             }
