@@ -17,6 +17,7 @@ public class ConditionalExercises1 {
         exercises.addItem("Ejercicio 7 ", ConditionalExercises1::Exercise7);
         exercises.addItem("Ejercicio 8 ", ConditionalExercises1::Exercise8);
         exercises.addItem("Ejercicio 9 ", ConditionalExercises1::Exercise9);
+        exercises.addItem("Ejercicio 10 ", ConditionalExercises1::Exercise10);
     }
 
     //1. Ingresar un número entero. En caso de ser positivo indicar ‘true’ por pantalla
@@ -269,6 +270,65 @@ public class ConditionalExercises1 {
         }
         }
 
+        //10. Modelar el juego “piedra, papel o tijera”. Primero cada jugador ingresará su nombre.
+    //Luego elige la opción primero el jugador uno y luego el dos. Mostrar por pantalla el ganador
+    //o error si ingresan una opción inválida
+    public static void Exercise10(){
+        final String  NameA= stringInput( "Ingrese el nombre el jugador 1");
+        final String  NameB= stringInput( "Ingrese el nombre el jugador 2");
+
+        final String piedra = "piedra";
+        final String papel = "papel";
+        final String tijera = "tijera";
+
+        final String OptionA= stringInput(NameA + ": seleccione piedra papel o tijera").toLowerCase();
+            if (!OptionA.equals(papel) && !OptionA.equals(piedra) && !OptionA.equals(tijera)) {
+                print("error");
+                return;
+        }
+
+
+        final String OptionB= stringInput( NameB + ": seleccione piedra papel o tijera").toLowerCase();
+            if (!OptionB.equals(papel) && !OptionB.equals(piedra) && !OptionB.equals(tijera)) {
+                print("error");
+                return;
+            }
+        final String useroption= OptionA + OptionB;
+        final String ganador = "ganador";
+
+            switch (useroption) {
+                case piedra + tijera:
+                    print(NameA + ":" + ganador);
+                    break;
+
+                case tijera + piedra:
+                     print(NameB + ":" + ganador);
+                     break;
+
+                case papel + piedra:
+                     print(NameA + ":" + ganador);
+                     break;
+
+                case piedra + papel:
+                     print(NameB + ":" + ganador);
+                     break;
+
+                case tijera + papel:
+                    print(NameA + ":" + ganador);
+                    break;
+
+                case papel + tijera:
+                    print(NameB + ":" + ganador);
+                    break;
+
+                case papel + papel:
+                case piedra + piedra:
+                case tijera + tijera:
+                    print("empate");
+                    break;
+
+            }
     }
+}
 
 
