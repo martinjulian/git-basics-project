@@ -274,8 +274,8 @@ public class ConditionalExercises1 {
     //Luego elige la opción primero el jugador uno y luego el dos. Mostrar por pantalla el ganador
     //o error si ingresan una opción inválida
     public static void Exercise10(){
-        final String  NameA= stringInput( "Ingrese el nombre el jugador 1");
-        final String  NameB= stringInput( "Ingrese el nombre el jugador 2");
+        final String NameA= stringInput( "Ingrese el nombre el jugador 1");
+        final String NameB= stringInput( "Ingrese el nombre el jugador 2");
 
         final String piedra = "piedra";
         final String papel = "papel";
@@ -293,33 +293,21 @@ public class ConditionalExercises1 {
                 print("error");
                 return;
             }
-        final String useroption= OptionA + OptionB;
+        final String useroption = OptionA + OptionB;
         final String ganador = "ganador";
 
             switch (useroption) {
                 case piedra + tijera:
-                    print(NameA + ":" + ganador);
-                    break;
-
-                case tijera + piedra:
-                     print(NameB + ":" + ganador);
-                     break;
-
                 case papel + piedra:
-                     print(NameA + ":" + ganador);
-                     break;
-
-                case piedra + papel:
-                     print(NameB + ":" + ganador);
-                     break;
-
                 case tijera + papel:
                     print(NameA + ":" + ganador);
                     break;
 
+                case tijera + piedra:
                 case papel + tijera:
-                    print(NameB + ":" + ganador);
-                    break;
+                case piedra + papel:
+                     print(NameB + ":" + ganador);
+                     break;
 
                 case papel + papel:
                 case piedra + piedra:
