@@ -8,20 +8,20 @@ public class ConditionalExercises1 {
     public static void SubscribeToMenu(Menu mainMenu) {
         final Menu exercises = new Menu("Ejercicios condicionales 1", mainMenu);
 
-        exercises.addItem("Ejercicio 1 ", ConditionalExercises1::Exercise1); //method reference java 8
-        exercises.addItem("Ejercicio 2 ", ConditionalExercises1::Exercise2);
-        exercises.addItem("Ejercicio 3 ", ConditionalExercises1::Exercise3);
-        exercises.addItem("Ejercicio 4 ", ConditionalExercises1::Exercise4);
-        exercises.addItem("Ejercicio 5 ", ConditionalExercises1::Exercise5);
-        exercises.addItem("Ejercicio 6 ", ConditionalExercises1::Exercise6);
-        exercises.addItem("Ejercicio 7 ", ConditionalExercises1::Exercise7);
-        exercises.addItem("Ejercicio 8 ", ConditionalExercises1::Exercise8);
-        exercises.addItem("Ejercicio 9 ", ConditionalExercises1::Exercise9);
-        exercises.addItem("Ejercicio 10 ", ConditionalExercises1::Exercise10);
+        exercises.addItem("Ejercicio 1 ", ConditionalExercises1::exercise1); //method reference java 8
+        exercises.addItem("Ejercicio 2 ", ConditionalExercises1::exercise2);
+        exercises.addItem("Ejercicio 3 ", ConditionalExercises1::exercise3);
+        exercises.addItem("Ejercicio 4 ", ConditionalExercises1::exercise4);
+        exercises.addItem("Ejercicio 5 ", ConditionalExercises1::exercise5);
+        exercises.addItem("Ejercicio 6 ", ConditionalExercises1::exercise6);
+        exercises.addItem("Ejercicio 7 ", ConditionalExercises1::exercise7);
+        exercises.addItem("Ejercicio 8 ", ConditionalExercises1::exercise8);
+        exercises.addItem("Ejercicio 9 ", ConditionalExercises1::exercise9);
+        exercises.addItem("Ejercicio 10 ", ConditionalExercises1::exercise10);
     }
 
     //1. Ingresar un número entero. En caso de ser positivo indicar ‘true’ por pantalla
-    public static void Exercise1() {
+    public static void exercise1() {
         int num = intInput("Ingrese un numero entero");
 
         if (num > 0) {
@@ -32,7 +32,7 @@ public class ConditionalExercises1 {
 
     //2. Ingresar un número entero. En caso de ser positivo indicar ‘true’ por pantalla. En caso de
     //ser negativo, y sólo si está entre -10 y -20, indicarlo ‘true’ por pantalla.
-    public static void Exercise2() {
+    public static void exercise2() {
         int num = intInput("Ingrese un numero entero");
 
         if (num > 0) {
@@ -44,7 +44,7 @@ public class ConditionalExercises1 {
 
     //3. Ingresar un número entero. En caso de ser positivo y mayor que 10 indicar true por
     //pantalla.
-    public static void Exercise3() {
+    public static void exercise3() {
         int num = intInput("Ingrese un numero entero");
 
         if (num > 0) {
@@ -58,7 +58,7 @@ public class ConditionalExercises1 {
 
     //4. Ingresar dos números, 'a' y 'b'. En caso de que 'a' sea positivo, mostrar 'true' si 'b' es
     //positivo. En caso de que 'a' sea negativo, mostrar 'true' si 'b' es negativo.
-    public static void Exercise4() {
+    public static void exercise4() {
         int numA = intInput("Ingrese un numero entero A");
         int numB = intInput("Ingrese un numero entero B");
 
@@ -70,7 +70,7 @@ public class ConditionalExercises1 {
     }
 
     //5. Ingresar tres números. Mostrar “true” cada vez que el número ingresado sea par
-    public static void Exercise5() {
+    public static void exercise5() {
 
         int numA = intInput("Ingrese un numero entero A");
         int numB = intInput("Ingrese un numero entero B");
@@ -90,7 +90,7 @@ public class ConditionalExercises1 {
     //6. Ingresar dos números, 'a' y 'b'. En caso de que ambos sean positivos, para cada uno
     //mostrar 'true' si el resultado de sumarle 1 es par. De modo contrario hacer la misma
     //operación pero sólo para 'a'.
-    public static void Exercise6() {
+    public static void exercise6() {
 
         int numA = intInput("Ingrese un numero entero A");
         int numB = intInput("Ingrese un numero entero B");
@@ -112,7 +112,7 @@ public class ConditionalExercises1 {
     //un número positivo, mostrar 'true'. Si esto último no sucede pero la resta entre 'a' y 'b' es
     //negativa, también mostrar 'true'. En todos los demás casos indicar por pantalla si la resta de
     //los tres números es igual a 0
-    public static void Exercise7() {
+    public static void exercise7() {
         int numA = intInput("Ingrese un numero entero A");
         int numB = intInput("Ingrese un numero entero B");
         int numC = intInput("Ingrese un numero entero C");
@@ -132,7 +132,7 @@ public class ConditionalExercises1 {
     //de sus primarios, devolver el secundario sumándole "claro"/"oscuro" según sea el caso. Si
     //los dos son secundarios, o si uno es primario pero no forma parte del secundario, devolver
     //'marrón'. Si alguno es inexistente, indicar "error". Pista -> pasar a minúscula.
-    public static void Exercise8() {
+    public static void exercise8() {
         final String ColorA = stringInput("ingrese un color A").toLowerCase();
         final String ColorB = stringInput("ingrese un color B").toLowerCase();
 
@@ -218,7 +218,7 @@ public class ConditionalExercises1 {
     //Ingresar un texto: "sum", "subtract", "multiply", "divide", "percentage".
     //Ingresar dos números y mostrar por pantalla el resultado de la operación. Mostrar
     //"error" si la operación es inválida o si se divide por 0.
-    public static void Exercise9(){
+    public static void exercise9(){
         final String operation = stringInput("ingrese una operacion a realizar").toLowerCase();
         final String sum = "sum";
         final String multiply = "multiply";
@@ -273,7 +273,7 @@ public class ConditionalExercises1 {
         //10. Modelar el juego “piedra, papel o tijera”. Primero cada jugador ingresará su nombre.
     //Luego elige la opción primero el jugador uno y luego el dos. Mostrar por pantalla el ganador
     //o error si ingresan una opción inválida
-    public static void Exercise10(){
+    public static void exercise10(){
         final String NameA= stringInput( "Ingrese el nombre el jugador 1");
         final String NameB= stringInput( "Ingrese el nombre el jugador 2");
 
