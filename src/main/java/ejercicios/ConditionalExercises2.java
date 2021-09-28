@@ -3,6 +3,8 @@ package ejercicios;
 import menu.Menu;
 
 import static util.IOUtil.*;
+import static util.utilForExercises.isConsonant;
+import static util.utilForExercises.isVocal;
 
 public class ConditionalExercises2 {
 
@@ -16,24 +18,40 @@ public class ConditionalExercises2 {
         exercises.addItem("Ejercicio 5 ", ConditionalExercises2::exercise5);
         exercises.addItem("Ejercicio 6 ", ConditionalExercises2::exercise6);
         exercises.addItem("Ejercicio 7 ", ConditionalExercises2::exercise7);
-        /*exercises.addItem("Ejercicio 8 ", ConditionalExercises2::Exercise8);
-        exercises.addItem("Ejercicio 9 ", ConditionalExercises2::Exercise9);
-        exercises.addItem("Ejercicio 10 ", ConditionalExercises2::Exercise10);*/
+        exercises.addItem("Ejercicio 8 ", ConditionalExercises2::exercise8);
+        exercises.addItem("Ejercicio 9 ", ConditionalExercises2::exercise9);
+        exercises.addItem("Ejercicio 10 ", ConditionalExercises2::exercise10);
     }
 
     //1- Ingresar un número. Mostrar todos los números hasta llegar a su opuesto.
     public static void exercise1() {
-        final int num = intInput("ingrese un numero entero");
+        int num = intInput("ingrese un numero entero");
         final int oppositeNum = num * -1;
 
-        final int step = num < 0 ? 1 : -1;
+
+        if (num < 0) {
+            while (num != oppositeNum) {
+                num++;
+                print(num);
+            }
+
+        } else if (num > 0) {
+            while (num != oppositeNum) {
+                num--;
+                print(num);
+            }
+
+        }
+    }
+        /*final int step = num < 0 ? 1 : -1;
         int numToPrint = num;
 
         while (numToPrint != oppositeNum + step) {
             print(numToPrint);
             numToPrint += step; //numToPrint = numbToPrint + step;
-        }
-    }
+            */
+
+
 
     //2- Ingresar un número. Mostrar todos los múltiplos de 2 anteriores a ese número.
     public static void exercise2() {
@@ -109,28 +127,85 @@ public class ConditionalExercises2 {
 
         String result = "";
 
-        for (char c: charArray) {
-            if (isConsonant(c)){
-            result += c;
+        for (char c : charArray) {
+            if (isConsonant(c)) {
+                result += c;
             }
         }
         print(result);
 
     }
 
-    private static boolean isConsonant(char value) {
 
-        final String charToLowerCase = String.valueOf(value).toLowerCase();
-
-        final char c =charToLowerCase.toCharArray()[0];
-
-        return c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u';
-    }
     //7- Ingresar un texto y una letra. Mostrar la cantidad de ocurrencias de esa letra ignorando
     //mayúsculas/minúsculas
-    public  static void exercise7(){
-        final String text= stringInput("ingrese un texto");
-        final String letter= stringInput("ingrese una letra");
+    public static void exercise7() {
+        final String text = stringInput("ingrese un texto").toLowerCase();
+        final String letter = stringInput("ingrese una letra").toLowerCase();
+        int occurrences = 0;
 
+        if (letter.length() != 1) {
+            print("ingreso invalido");
+            return;
+        } else {
+
+            char[] charArray = text.toCharArray();
+            for (char c : charArray) {
+
+                final String stringvalue = String.valueOf(c);
+
+                if (stringvalue.equals(letter)) {
+                    occurrences++;
+
+                }
+            }
+        }
+        print(occurrences);
+
+    }
+
+    //8- Ingresar un texto. Devolver un texto conteniendo las vocales primero y luego las
+    //consonantes. Eliminar los espacios
+    public static void exercise8() {
+        final String text = stringInput("ingrese un texto");
+        final String textWithoutSpaces = text.replace(" ", "");
+        String vocals = "";
+        String consonats = "";
+        for (char c : textWithoutSpaces.toCharArray()) {
+            if (isConsonant(c)) {
+                consonats += c;
+            } else if (isVocal(c)) {
+                vocals += c;
+
+            }
+        }
+        print(vocals + consonats);
+    }
+
+    //9- Ingresar números hasta que la suma de todos supere 100.
+    public static void exercise9() {
+        int sum = 0;
+
+        while (sum <= 100) {
+            int sumB = intInput("ingerese un numero");
+            sum += sumB;
+
+        }
+        print(sum);
+    }
+
+    /* 10- Ingresar un número n. Ingresar n cantidad de caracteres. Mostrar la concatenación.
+    Ej.: ingreso 5. Muestro “Ingresar 5 caracteres”. Ingreso “a” “b” “c” “d” “e”. Muestro “abcde”*/
+    public static void exercise10() {
+    final int num = intInput("ingrese un numero");
+
+    String result ="";
+
+    for (int i = 0; i < num; i ++){
+
+            result +=  stringInput("ingerese un caracter");
+
+         }
+        print(result);
     }
 }
