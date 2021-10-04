@@ -2,25 +2,31 @@ package ejercicios;
 
 import menu.Menu;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static util.IOUtil.*;
 import static util.utilForExercises.isConsonant;
 import static util.utilForExercises.isVocal;
 
-public class ConditionalExercises2 {
+public class ConditionalExercisesLoopsAndText2 {
 
     public static void SubscribeToMenu(Menu mainMenu) {
-        final Menu exercises = new Menu("Ejercicios condicionales 2", mainMenu);
+        final Menu exercises = new Menu("Ejercicios condicionales loops 2", mainMenu);
 
-        exercises.addItem("Ejercicio 1 ", ConditionalExercises2::exercise1);
-        exercises.addItem("Ejercicio 2 ", ConditionalExercises2::exercise2);
-        exercises.addItem("Ejercicio 3 ", ConditionalExercises2::exercise3);
-        exercises.addItem("Ejercicio 4 ", ConditionalExercises2::exercise4);
-        exercises.addItem("Ejercicio 5 ", ConditionalExercises2::exercise5);
-        exercises.addItem("Ejercicio 6 ", ConditionalExercises2::exercise6);
-        exercises.addItem("Ejercicio 7 ", ConditionalExercises2::exercise7);
-        exercises.addItem("Ejercicio 8 ", ConditionalExercises2::exercise8);
-        exercises.addItem("Ejercicio 9 ", ConditionalExercises2::exercise9);
-        exercises.addItem("Ejercicio 10 ", ConditionalExercises2::exercise10);
+        exercises.addItem("Ejercicio 1 ", ConditionalExercisesLoopsAndText2::exercise1);
+        exercises.addItem("Ejercicio 2 ", ConditionalExercisesLoopsAndText2::exercise2);
+        exercises.addItem("Ejercicio 3 ", ConditionalExercisesLoopsAndText2::exercise3);
+        exercises.addItem("Ejercicio 4 ", ConditionalExercisesLoopsAndText2::exercise4);
+        exercises.addItem("Ejercicio 5 ", ConditionalExercisesLoopsAndText2::exercise5);
+        exercises.addItem("Ejercicio 6 ", ConditionalExercisesLoopsAndText2::exercise6);
+        exercises.addItem("Ejercicio 7 ", ConditionalExercisesLoopsAndText2::exercise7);
+        exercises.addItem("Ejercicio 8 ", ConditionalExercisesLoopsAndText2::exercise8);
+        exercises.addItem("Ejercicio 9 ", ConditionalExercisesLoopsAndText2::exercise9);
+        exercises.addItem("Ejercicio 10 ", ConditionalExercisesLoopsAndText2::exercise10);
+        exercises.addItem("Ejercicio 11 ", ConditionalExercisesLoopsAndText2::exercise11);
     }
 
     //1- Ingresar un número. Mostrar todos los números hasta llegar a su opuesto.
@@ -202,10 +208,26 @@ public class ConditionalExercises2 {
     String result ="";
 
     for (int i = 0; i < num; i ++){
+        String c = "";
 
-            result +=  stringInput("ingerese un caracter");
+            while (c.length() != 1) {
+                c = stringInput("ingrese un caracter");
 
-         }
+            }
+                result+=c;
+        }
         print(result);
+    }
+   /* 11- Ingresar un número entero de 6 cifras. Mostrar la secuencia de números ordenada de
+    forma ascendente. Utilizar tipo de dato double.
+    Ej.: entrada = 874396, salida = 346789*/
+
+    public static void exercise11(){
+        int num = intInput("ingrese un numero de 6 cifras", i -> String.valueOf(i).length() == 6 );
+
+        final List<String> digitalStringlist = new ArrayList<>(Arrays.asList(String.valueOf(num).split( "")));
+
+        final List<Integer> digits = digitalStringlist.stream().map(Integer::parseInt).collect(Collectors.toList());
+
     }
 }

@@ -1,6 +1,8 @@
 import ejercicios.ConditionalExercises1;
-import ejercicios.ConditionalExercises2;
+import ejercicios.ConditionalExercisesLoopsAndText2;
+import ejercicios.ConditionalExercisesCollections2;
 import ejercicios.ExampleExerciseBundle;
+
 import menu.Menu;
 
 public class Main {
@@ -10,7 +12,8 @@ public class Main {
 
         ExampleExerciseBundle.subscribeToMenu(mainMenu);
         ConditionalExercises1.SubscribeToMenu(mainMenu);
-        ConditionalExercises2.SubscribeToMenu(mainMenu);
+        ConditionalExercisesLoopsAndText2.SubscribeToMenu(mainMenu);
+        ConditionalExercisesCollections2.SubscribeToMenu(mainMenu);
 
         mainMenu.execute();
     }
