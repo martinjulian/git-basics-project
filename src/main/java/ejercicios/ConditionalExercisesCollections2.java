@@ -81,20 +81,23 @@ public class ConditionalExercisesCollections2 {
         final String team3Name = stringInput("Ingrese el nombre del tercer equipo");
         final int team3Score = intInput("Ingrese el puntaje del tercer equipo");
 
-        Map<Integer, String > teamByScore = new TreeMap<>(Collections.reverseOrder());
+        Map<Integer, String > teamByScore = new TreeMap<>();
         teamByScore.put(team1Score,team1Name);
         teamByScore.put(team2Score,team2Name);
         teamByScore.put(team3Score,team3Name);
 
+        Map<Integer, String> sortedMap = new TreeMap<>(Collections.reverseOrder());
+        sortedMap.putAll(teamByScore);
+
         if (teamByScore.size() < 3) {
             print("¡Aún no hay un podio definido!");
 
-            //aca papucho 
+            //aca papucho
         } else {
             final Map<Podium, String> podiumMap = new HashMap<>();
-            podiumMap.put(Podium.CHAMPION, teamByScore.get(0));
-            podiumMap.put(Podium.SUB_CHAMPION, teamByScore.get(1));
-            podiumMap.put(Podium.THIRD_PLACE, teamByScore.get(2));
+            podiumMap.put(Podium.CHAMPION, sortedMap.get(0));
+            podiumMap.put(Podium.SUB_CHAMPION, sortedMap.get(1));
+            podiumMap.put(Podium.THIRD_PLACE, sortedMap.get(2));
 
            print(podiumMap);
         }
